@@ -21,6 +21,17 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
+  updateUser() {
+    return this.http.get<any>(`${environment.apiUrl}/users/me`)
+      .pipe(map(result => {
+        const user: User = result.data;
+
+        this.currentUserSubject.value.balance = result.data.value;
+
+        return user;
+      }));
+  }
+
   login(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/auth/signin`, { email, password })
       .pipe(map(result => {

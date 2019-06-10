@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>New Transference</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="identification" placeholder="Identification">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="value" placeholder="Value">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">CANCEL</button>
+  <button mat-button (click)="onConfirmClick()"cdkFocusInitial [disabled]="!identification || !value">CONFIRM</button>
+</div>

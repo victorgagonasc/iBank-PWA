@@ -46,10 +46,7 @@ export class SignupComponent implements OnInit {
 
     this.loading = true;
 
-    const user: User = this.registerForm.value;
-    user.birthDate = new Date(user.birthDate);
-
-    this.authService.register(user)
+    this.authService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -57,8 +54,8 @@ export class SignupComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         err => {
-          this.showSnackBar(err.error.message);
           this.loading = false;
+          this.showSnackBar(err);
         }
       );
   }

@@ -51,7 +51,7 @@ export class SigninComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         err => {
-          this.showSnackBar(err.error.message);
+          this.showSnackBar(err);
           this.loading = false;
         }
       );

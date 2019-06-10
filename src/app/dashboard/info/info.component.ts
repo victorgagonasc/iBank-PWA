@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
+import { MatDialog } from '@angular/material';
+import { TransferenceComponent } from '../transference/transference.component';
 
 @Component({
   selector: 'app-info',
@@ -13,7 +15,8 @@ export class InfoComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private dialog: MatDialog
   ) {
     this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
@@ -21,5 +24,11 @@ export class InfoComponent {
   logout() {
     this.authService.logout();
     this.router.navigate(['auth/signin']);
-}
+  }
+
+  openTransferenceDialog() {
+    this.dialog.open(TransferenceComponent, {
+      width: '300px'
+    });
+  }
 }

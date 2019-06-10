@@ -4,7 +4,7 @@
   <button mat-button (click)="logout()">Logout</button>
 </mat-toolbar>
 
-<mat-card>
+<mat-card *ngIf="currentUser">
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
     <mat-card-title>{{ currentUser.firstName }} {{ currentUser.lastName }}</mat-card-title>
@@ -15,6 +15,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>STATEMENT</button>
-    <button mat-button>TRANSFER</button>
+    <button mat-button (click)="openTransferenceDialog()">TRANSFERENCE</button>
   </mat-card-actions>
 </mat-card>

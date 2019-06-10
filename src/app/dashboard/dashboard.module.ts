@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InfoComponent } from './info/info.component';
 import { StatementComponent } from './statement/statement.component';
 import { SharedModule } from '../shared/shared.module';
+import { TransferenceComponent } from './transference/transference.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'info', pathMatch: 'full' },
@@ -12,11 +13,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [InfoComponent, StatementComponent],
+  declarations: [InfoComponent, StatementComponent, TransferenceComponent],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes)
-  ]
+  ],
+  entryComponents: [TransferenceComponent]
 })
 export class DashboardModule { }
