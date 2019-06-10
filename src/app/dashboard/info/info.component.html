@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>iBank</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{ currentUser.firstName }} {{ currentUser.lastName }}</mat-card-title>
+    <mat-card-subtitle>{{ currentUser.identification }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h3><b>Balance: </b>R$ {{ currentUser.balance }}</h3>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>STATEMENT</button>
+    <button mat-button>TRANSFER</button>
+  </mat-card-actions>
+</mat-card>
